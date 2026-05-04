@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Tags\Tables;
 
+use Filament\Tables\Columns\TextColumn; // Tambahkan import ini
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -14,7 +15,13 @@ class TagsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')
+                    ->searchable() 
+                    ->sortable(), 
+                
+                TextColumn::make('tasks_count')
+                    ->counts('tasks')
+                    ->label('Total Tasks'),
             ])
             ->filters([
                 //

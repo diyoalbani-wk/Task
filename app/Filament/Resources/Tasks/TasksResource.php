@@ -11,6 +11,7 @@ use App\Filament\Resources\Tasks\Schemas\TasksInfolist;
 use App\Filament\Resources\Tasks\Tables\TasksTable;
 use App\Models\Task;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -20,7 +21,10 @@ class TasksResource extends Resource
 {
     protected static ?string $model = Task::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocument;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentCheck;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Project Management';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {

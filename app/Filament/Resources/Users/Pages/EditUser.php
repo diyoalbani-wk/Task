@@ -18,4 +18,12 @@ class EditUser extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function afterSave(): void
+    {
+        $this->record->profile()->updateOrCreate(
+            [],
+            $this->data['profile'] ?? []
+        );
+    }
 }

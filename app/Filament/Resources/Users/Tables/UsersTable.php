@@ -17,10 +17,18 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+
                 TextColumn::make('email')
                     ->searchable(),
+
+                TextColumn::make('roles.name')
+                    ->badge() 
+                    ->color('success')
+                    ->separator(','),
+
                 TextColumn::make('phone'),
-                TextColumn::make('addres'),
+
+                TextColumn::make('address'), // ✔ fix typo
             ])
             ->filters([
                 //

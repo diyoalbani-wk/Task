@@ -4,16 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Task;
 
 class Project extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'start_date',
+        'end_date'
     ];
 
-    public function tasks():HasMany
+    public function tasks(): HasMany
     {
-        return $this->hasMany(task::class);
+        return $this->hasMany(Task::class);
     }
 }

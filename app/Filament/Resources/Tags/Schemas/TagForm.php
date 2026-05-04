@@ -12,7 +12,9 @@ class TagForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->length(150),
+                    ->required()
+                    ->maxLength(150)
+                    ->unique(ignoreRecord: true), 
             ]);
     }
 }

@@ -3,16 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Task;
 
-class tag extends Model
+class Tag extends Model
 {
     protected $fillable = [
         'name'
     ];
 
-    public function task():HasMany
+    public function tasks(): BelongsToMany
     {
-        return $this->hashmany(task::class);
+        return $this->belongsToMany(Task::class);
     }
 }
