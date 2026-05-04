@@ -4,10 +4,9 @@ namespace App\Filament\Resources\Tasks\Schemas;
 
 use App\Models\Project;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput; 
+use Filament\Forms\Components\Textarea; 
 use Filament\Schemas\Schema;
-use Filament\Forms\Get;
 use Closure;
 
 class TasksForm
@@ -21,7 +20,7 @@ class TasksForm
                     ->required()
                     ->live()
                     ->rules([
-                        fn (Get $get): Closure => function (string $attribute, $value, Closure $fail) {
+                        fn ($get): Closure => function (string $attribute, $value, Closure $fail) {
                             $project = Project::find($value);
                             if ($project && $project->end_date < now()->startOfDay()) {
                                 $fail("Project ini sudah berakhir pada {$project->end_date->format('d/m/Y')}. Tidak bisa menambah task baru.");
