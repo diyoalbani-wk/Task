@@ -44,7 +44,9 @@ class UserForm
                     ->schema([
                         FileUpload::make('avatar')
                             ->image()
+                            ->disk('public') 
                             ->directory('profiles') 
+                            ->visibility('public') 
                             ->imagePreviewHeight('100'),
 
                         Textarea::make('bio'),

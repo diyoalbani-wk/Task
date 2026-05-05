@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Task;
+use App\Models\User; 
 
 class Project extends Model
 {
@@ -12,7 +13,8 @@ class Project extends Model
         'name',
         'description',
         'start_date',
-        'end_date'
+        'end_date',
+        'manager_id', 
     ];
 
     protected function casts(): array
@@ -26,5 +28,15 @@ class Project extends Model
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function developers()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function manager()
+    {
+        return $this->belongsTo(User::class, 'manager_id');
     }
 }

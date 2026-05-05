@@ -27,8 +27,7 @@ class UsersTable
                     ->separator(','),
 
                 TextColumn::make('phone'),
-
-                TextColumn::make('address'), // ✔ fix typo
+                TextColumn::make('address'), 
             ])
             ->filters([
                 //

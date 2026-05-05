@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Tasks\Tables;
 
 use Filament\Tables\Table;
-use Filament\Tables\Columns\TextColumn; // <--- TAMBAHKAN BARIS INI
+use Filament\Tables\Columns\TextColumn; 
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
@@ -15,10 +15,18 @@ class TasksTable
     {
         return $table
             ->columns([
+                TextColumn::make('project.name')
+                    ->searchable(),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                
+                TextColumn::make('description')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('status')
+                    ->searchable(),
+                TextColumn::make('tags.name')
+                    ->searchable(),
             ])
 
             ->filters([

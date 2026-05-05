@@ -18,7 +18,7 @@ class ProjectsTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('description')
-                    ->limit(50)
+                    ->limit(30)
                     ->searchable(),
                 TextColumn::make('start_date')
                     ->date('d/m/Y')
@@ -26,6 +26,25 @@ class ProjectsTable
                 TextColumn::make('end_date')
                     ->date('d/m/Y')
                     ->sortable(),
+                TextColumn::make('manager.name')
+                    ->label('Project Manager')
+                    ->badge(),
+                TextColumn::make('developers.name')
+                    ->label('Developers')
+                    ->badge()
+                    ->separator(','),    
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
             ]);
     }
 }

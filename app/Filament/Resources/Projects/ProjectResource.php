@@ -9,6 +9,7 @@ use App\Filament\Resources\Projects\Pages\ViewProject;
 use App\Filament\Resources\Projects\Schemas\ProjectForm;
 use App\Filament\Resources\Projects\Schemas\ProjectInfolist;
 use App\Filament\Resources\Projects\Tables\ProjectsTable;
+use App\Filament\Resources\Projects\RelationManagers\TasksRelationManager;
 use App\Models\Project;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -43,7 +44,7 @@ class ProjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TasksRelationManager::class,
         ];
     }
 

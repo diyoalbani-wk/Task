@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Tags\Tables;
 
-use Filament\Tables\Columns\TextColumn; // Tambahkan import ini
+use Filament\Tables\Columns\TextColumn; 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
