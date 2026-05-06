@@ -9,10 +9,10 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class TaskStats extends BaseWidget
 {
+
     protected function getStats(): array
     {
         return [
-        Stat::make('Total Project', Project::count()),
 
         Stat::make('Total Project', (string) Project::count()) 
             ->description('Semua projek yang terdaftar')
@@ -25,6 +25,13 @@ class TaskStats extends BaseWidget
         Stat::make('Task Todo', (string) Task::where('status', 'todo')->count())
             ->color('gray'),
 
+        Stat::make('Task In Proges', (string) Task::where('status', 'in proges')->count())
+            ->color('gray'),
+
+        Stat::make('Task Done', (string) Task::where('status', 'done')->count())
+            ->color('gray'),
+
         ];
+        
     }
 }
